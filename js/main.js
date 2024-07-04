@@ -6,7 +6,7 @@ import Search from "https://js.arcgis.com/4.25/esri/widgets/Search.js";
 esriConfig.apiKey = "AAPKba612eedccd74bbabe0e040dec19190bkMVVICJGBITVVx-yRWPSKUO0HiwM3rEFvcZUZ52GBZfyakj41U9ixXAI3lslJLyo";
 
 const map = new Map({
-    basemap: "topographic"
+    basemap: "topo"
 });
 
 const view = new MapView({
