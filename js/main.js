@@ -21,7 +21,20 @@ const view = new MapView({
 
 //add feature layers
 const watermainLayer = new FeatureLayer({
-  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/1"
+  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/1",
+  outFields: ["*"],
+  popupTemplate: {
+      title: "Watermain",
+      content: `
+          <b>Pipe ID:</b> {PipeID}<br>
+          <b>Material:</b> {Material}<br>
+          <b>Diameter (in):</b> {Diamter}<br>
+          <b>Install Year:</b> {InstallYear}<br>
+          <b>Segment Length:</b> {Shape__Length}<br>
+          <b>Number of Breaks on Segment:</b> {NumBreaks}<br>
+          <b>Road ID:</b> {RoadID}
+      `
+  }
 });
 
 const watermainBreakLayer = new FeatureLayer({
@@ -38,7 +51,17 @@ const watermainBreakLayer = new FeatureLayer({
 });
 
 const roadLayer = new FeatureLayer({
-  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Roadway/FeatureServer"
+  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Roadway/FeatureServer",
+  outFields: ["*"],
+      popupTemplate: {
+          title: "Roadway",
+          content: `
+              <b>Road ID:</b> {RoadID}<br>
+              <b>Road Type:</b> {RoadType}<br>
+              <b>Condition Rating:</b> {ConditionRating}<br>
+              <b>Segment Length:</b> {Shape__Length}
+          `
+  }
 });
 
 map.addMany([roadLayer, watermainLayer, watermainBreakLayer]);
