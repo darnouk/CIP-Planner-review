@@ -1,18 +1,14 @@
-import Map from "https://js.arcgis.com/4.25/esri/Map.js";
-import MapView from "https://js.arcgis.com/4.25/esri/views/MapView.js";
+require([
+  "esri/config",
+  "esri/Map",
+  "esri/views/MapView"
+], function(esriConfig, Map, MapView) {
 
+  esriConfig.apiKey = "AAPKba612eedccd74bbabe0e040dec19190bkMVVICJGBITVVx-yRWPSKUO0HiwM3rEFvcZUZ52GBZfyakj41U9ixXAI3lslJLyo";
 
-
-//import esriConfig from "https://js.arcgis.com/4.25/esri/config.js";
-//import Map from "https://js.arcgis.com/4.25/esri/Map.js";
-//import MapView from "https://js.arcgis.com/4.25/esri/views/MapView.js";
-//import Search from "https://js.arcgis.com/4.25/esri/widgets/Search.js";
-
-//esriConfig.apiKey = "AAPKba612eedccd74bbabe0e040dec19190bkMVVICJGBITVVx-yRWPSKUO0HiwM3rEFvcZUZ52GBZfyakj41U9ixXAI3lslJLyo";
-
-const map = new Map({
-    basemap: "arcgis-imagery"
-});
+  const map = new Map({
+      basemap: "arcgis-imagery"
+  });
 
 const view = new MapView({
   container: "viewDiv", //reference to the map container
@@ -33,8 +29,4 @@ view.ui.add(searchWidget, {
   index: 2
 }); */
 
-view.when(() => {
-  console.log("Map and View are ready");
-}, (error) => {
-  console.error("Error:", error);
 });
