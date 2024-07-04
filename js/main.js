@@ -25,7 +25,7 @@ const roadLayer = new FeatureLayer({
 });
 
 
-map.add([roadLayer]);
+map.add(roadLayer);
 
 const searchWidget = new Search({
   view: view,
