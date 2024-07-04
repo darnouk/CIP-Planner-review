@@ -3,8 +3,10 @@ require([
   "esri/Map",
   "esri/views/MapView",
   "esri/layers/FeatureLayer",
-  "esri/widgets/Search"
-], function(esriConfig, Map, MapView, FeatureLayer, Search) {
+  "esri/widgets/Search",
+  "esri/widgets/Expand",
+  "esri/widgets/LayerList"
+], function(esriConfig, Map, MapView, FeatureLayer, Search, Expand, LayerList) {
 
   esriConfig.apiKey = "AAPKba612eedccd74bbabe0e040dec19190bkMVVICJGBITVVx-yRWPSKUO0HiwM3rEFvcZUZ52GBZfyakj41U9ixXAI3lslJLyo";
 
