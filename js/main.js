@@ -20,9 +20,11 @@ const view = new MapView({
 });
 
 //add feature layers
-
+const watermainBreakLayer = new FeatureLayer({
+  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/0"
+})
 const watermainLayer = new FeatureLayer({
-  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer"
+  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/1"
 });
 
 const roadLayer = new FeatureLayer({
