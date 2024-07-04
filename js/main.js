@@ -2,8 +2,9 @@ require([
   "esri/config",
   "esri/Map",
   "esri/views/MapView",
+  "esri/layers/FeatureLayer",
   "esri/widgets/Search"
-], function(esriConfig, Map, MapView, Search) {
+], function(esriConfig, Map, MapView, FeatureLayer, Search) {
 
   esriConfig.apiKey = "AAPKba612eedccd74bbabe0e040dec19190bkMVVICJGBITVVx-yRWPSKUO0HiwM3rEFvcZUZ52GBZfyakj41U9ixXAI3lslJLyo";
 
@@ -18,9 +19,13 @@ const view = new MapView({
   zoom: 12
 });
 
-const sources = [{
-  url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer"
-}];
+//add feature layers
+const roadLayer = new FeatureLayer({
+  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Roadway/FeatureServer"
+});
+
+
+map.add([roadLayer]);
 
 const searchWidget = new Search({
   view: view,
