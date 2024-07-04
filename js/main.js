@@ -15,7 +15,7 @@ require([
 const view = new MapView({
   container: "viewDiv", //reference to the map container
   map: map,
-  center: [-87.5, 43.0],
+  center: [-87.0870, 42.0919],
   zoom: 10
 });
 
