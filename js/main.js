@@ -23,7 +23,7 @@ const view = new MapView({
 
 const watermainLayer = new FeatureLayer({
   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer"
-})
+});
 
 const roadLayer = new FeatureLayer({
   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Roadway/FeatureServer"
