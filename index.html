@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-            <title>CIP Planner</title>
+<head>
+  <title>CIP Planner</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
 
-        <!--put your external stylesheet links here-->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+  <!-- calls for the arcgis api's CSS file and JS library -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+  
+  <!-- css to make a full screen map -->
+  <style>
+    html,
+    body,
+    #viewDiv  {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 
-    <style>
-        /* style for map container */
-        #viewDiv {
-            height: 100vh;
-            width: 100%;
-            display: inline-block;
-        } 
-    </style>       
-        
 </head>
 <body>
+  
+  <!-- the div to display the map -->
+  <div id="viewDiv"></div>
 
-    <div id="viewDiv"></div>    
+  <!--ArcGIS API for JavaScript -->
+  <script src="https://js.arcgis.com/4.25/"></script>
+  <!--Main JavaScript file -->
+  <script type="module" src="js/main.js"></script>
 
-    <!--put your external script links here-->
-    <script src="https://js.arcgis.com/4.21/"></script>
-    <script type="module" src="js/main.js"></script>
-    
 </body>
 </html>
