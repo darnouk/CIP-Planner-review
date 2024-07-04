@@ -5,8 +5,9 @@ require([
   "esri/layers/FeatureLayer",
   "esri/widgets/Search",
   "esri/widgets/Expand",
-  "esri/widgets/LayerList"
-], function(esriConfig, Map, MapView, FeatureLayer, Search, Expand, LayerList) {
+  "esri/widgets/LayerList",
+  "esri/tasks/support/Query"
+], function(esriConfig, Map, MapView, FeatureLayer, Search, Expand, LayerList, Query) {
 
   esriConfig.apiKey = "AAPKba612eedccd74bbabe0e040dec19190bkMVVICJGBITVVx-yRWPSKUO0HiwM3rEFvcZUZ52GBZfyakj41U9ixXAI3lslJLyo";
 
@@ -116,6 +117,56 @@ document.getElementById("query-form").addEventListener("submit", function(event)
   event.preventDefault();
   const rating = document.getElementById("condition-rating").value;
   roadLayer.definitionExpression = `ConditionRating < ${rating}`;
+  updateChart(rating);
 });
+
+// Function to update the chart
+function updateChart(rating) {
+  const query = roadLayer.createQuery();
+  query.where = `ConditionRating < ${rating}`;
+  query.outStatistics = [
+    {
+      onStatisticField: "Shape__Length",
+      outStatisticFieldName: "totalLength",
+      statisticType: "sum"
+    },
+    {
+      onStatisticField: "ConditionRating",
+      outStatisticFieldName: "ratingCount",
+      statisticType: "count"
+    }
+  ];
+  roadLayer.queryFeatures(query).then(function(result) {
+    const totalLength = result.features[0].attributes.totalLength;
+    const ratingCount = result.features[0].attributes.ratingCount;
+    const data = [totalLength, ratingCount];
+
+    // Create the chart
+    const ctx = document.getElementById('conditionChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Total Length', 'Count'],
+        datasets: [{
+          label: 'Road Conditions',
+          data: data,
+          backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+          borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+}
+
+// Initial chart
+updateChart(5);
 
 });

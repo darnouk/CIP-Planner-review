@@ -9,6 +9,10 @@
   <!-- calls for the arcgis api's CSS file and JS library -->
   <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
   
+  <!--Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
   <!-- css to make a full screen map -->
   <style>
     html,
@@ -19,6 +23,17 @@
       height: 100%;
       width: 100%;
     }
+    .chart-container {
+      position: absolute;
+      top: 10px;
+      left: 50px;
+      width: 400px;
+      height: 300px;
+      background-color: white;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 99;
+    }
   </style>
 
 </head>
@@ -26,6 +41,11 @@
   
   <!-- the div to display the map -->
   <div id="viewDiv"></div>
+
+  <!--container for the chart -->
+  <div class="chart-container">
+    <canvas id="conditionChart"></canvas>
+  </div>
 
   <!--ArcGIS API for JavaScript -->
   <script src="https://js.arcgis.com/4.25/"></script>
