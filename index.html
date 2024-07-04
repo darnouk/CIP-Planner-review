@@ -20,7 +20,6 @@
       height: 100%;
       width: 100%;
     }
-
     .splash-screen {
       position: fixed;
       top: 0;
@@ -34,11 +33,22 @@
       justify-content: center;
       z-index: 9999;
       flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    .splash-screen h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .splash-screen p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      max-width: 600px;
     }
     .splash-screen button {
-      margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
+      cursor: pointer;
     }
    
   </style>
@@ -48,9 +58,17 @@
   <!-- Splash Screen -->
   <div id="splashScreen" class="splash-screen">
     <h1>Welcome to CIP Planner</h1>
-    <p>The layers in this map have been moved to a random place in Lake Michigan to preserve proprietary information.</p>
+    <p>
+      This application is designed to help city engineers visualize and query different scenarios related to public infrastructure. 
+      By leveraging Esri's ArcGIS API for JavaScript, this tool enables informed decision-making for planning and prioritizing infrastructure projects.
+    </p>
+    <p>
+      Please note that for privacy and security reasons, the layers displayed in this map have been moved to a random location in Lake Michigan.
+      This adjustment ensures that proprietary information is protected while still allowing you to explore the functionality of the application.
+    </p>
     <button onclick="closeSplashScreen()">Start</button>
   </div>
+
   <!-- the div to display the map -->
   <div id="viewDiv"></div>
 
@@ -64,6 +82,5 @@
       document.getElementById('splashScreen').style.display = 'none';
     }
   </script>
-
 </body>
 </html>
