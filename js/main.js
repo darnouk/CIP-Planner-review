@@ -87,7 +87,7 @@ const layerList = new LayerList({
   container: document.createElement("div")
 });
 
-view.ui.add(layerList, "top-right");
+view.ui.add(layerList, "bottom-right");
 
 // Handle road query form submission
 document.getElementById('road-query-form').addEventListener('submit', function(event) {
