@@ -9,7 +9,7 @@ require([
   esriConfig.apiKey = "AAPKba612eedccd74bbabe0e040dec19190bkMVVICJGBITVVx-yRWPSKUO0HiwM3rEFvcZUZ52GBZfyakj41U9ixXAI3lslJLyo";
 
   const map = new Map({
-      basemap: "arcgis-antique-modern"
+      basemap: "arcgis-topographic"
   });
 
 const view = new MapView({
