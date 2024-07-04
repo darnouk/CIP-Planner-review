@@ -59,6 +59,13 @@
       right: 10px;
       z-index: 99;
       max-width: 300px;
+    }
+    .reset-button {
+      display: block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }   
   </style>
 </head>
@@ -99,6 +106,7 @@
       <input type="number" id="break-count" name="break-count" min="0" value="0">
       <button type="submit">Apply Watermain Query</button>
     </form>
+    <button id="reset-button" class="reset-button">Reset Queries</button>
   </div>
 
     <!--ArcGIS API for JavaScript -->

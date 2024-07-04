@@ -81,6 +81,14 @@ view.ui.add(searchWidget, {
   index: 2
 });
 
+// LayerList widget
+const layerList = new LayerList({
+  view: view,
+  container: document.createElement("div")
+});
+
+view.ui.add(layerList, "top-right");
+
 // Handle road query form submission
 document.getElementById('road-query-form').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent form submission and page reload
@@ -102,42 +110,11 @@ document.getElementById('watermain-query-form').addEventListener('submit', funct
   console.log("Watermain Query Applied: " + watermainQuery);
 });
 
-//layerList widget
-const layerList = new LayerList({
-  view: view
-});
-
-const layerListExpand = new Expand({
-  view: view,
-  content: layerList,
-  expanded: false
-});
-
-view.ui.add(layerListExpand, "top-right");
-
-/* //query form
-const queryForm = document.createElement("div");
-queryForm.innerHTML = `
-  <form id="query-form" style="padding: 10px;">
-    <label for="condition-rating">Condition Rating less than:</label>
-    <input type="number" id="condition-rating" name="condition-rating" min="0" max="10" value="5">
-    <button type="submit">Apply Query</button>
-  </form>
-`;
-
-const queryExpand = new Expand({
-  view: view,
-  content: queryForm,
-  expanded: true
-});
-
-view.ui.add(queryExpand, "top-right");
-
-//query form submit event
-document.getElementById("query-form").addEventListener("submit", function(event) {
-  event.preventDefault();
-  const rating = document.getElementById("condition-rating").value;
-  roadLayer.definitionExpression = `ConditionRating < ${rating}`;
-}); */
+  // Handle reset button click
+  document.getElementById('reset-button').addEventListener('click', function() {
+    roadLayer.definitionExpression = null;
+    watermainLayer.definitionExpression = null;
+    console.log("Queries reset");
+  });
 
 });
