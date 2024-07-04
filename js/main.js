@@ -16,7 +16,7 @@ const view = new MapView({
   container: "viewDiv", //reference to the map container
   map: map,
   center: [-87.0870, 42.0919],
-  zoom: 12
+  zoom: 13
 });
 
 //add feature layers
