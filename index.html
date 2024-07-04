@@ -50,9 +50,17 @@
       font-size: 16px;
       cursor: pointer;
     }
-   
+    .query-form {
+      background-color: white;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 99;
+      max-width: 300px;
+    }   
   </style>
-
 </head>
 <body>
   <!-- Splash Screen -->
@@ -60,7 +68,6 @@
     <h1>Welcome to CIP Planner</h1>
     <p>
       This application is designed to help city engineers visualize and query different scenarios related to public infrastructure. 
-      By leveraging Esri's ArcGIS API for JavaScript, this tool enables informed decision-making for planning and prioritizing infrastructure projects.
     </p>
     <p>
       Please note that for privacy and security reasons, the layers displayed in this map have been moved to a random location in Lake Michigan.
@@ -71,6 +78,28 @@
 
   <!-- the div to display the map -->
   <div id="viewDiv"></div>
+
+  <!-- Query Form -->
+  <div id="queryForm" class="query-form">
+    <h3>Query Roads</h3>
+    <form id="road-query-form">
+      <label for="condition-rating-min">Condition Rating Min:</label>
+      <input type="number" id="condition-rating-min" name="condition-rating-min" min="0" max="10" value="0">
+      <label for="condition-rating-max">Condition Rating Max:</label>
+      <input type="number" id="condition-rating-max" name="condition-rating-max" min="0" max="10" value="10">
+      <button type="submit">Apply Road Query</button>
+    </form>
+    <h3>Query Watermains</h3>
+    <form id="watermain-query-form">
+      <label for="install-year-min">Install Year Min:</label>
+      <input type="number" id="install-year-min" name="install-year-min" value="1900">
+      <label for="install-year-max">Install Year Max:</label>
+      <input type="number" id="install-year-max" name="install-year-max" value="2021">
+      <label for="break-count">Minimum Number of Breaks:</label>
+      <input type="number" id="break-count" name="break-count" min="0" value="0">
+      <button type="submit">Apply Watermain Query</button>
+    </form>
+  </div>
 
     <!--ArcGIS API for JavaScript -->
   <script src="https://js.arcgis.com/4.25/"></script>

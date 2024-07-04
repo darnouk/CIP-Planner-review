@@ -81,6 +81,25 @@ view.ui.add(searchWidget, {
   index: 2
 });
 
+// Handle road query form submission
+document.getElementById('road-query-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const minRating = document.getElementById('condition-rating-min').value;
+  const maxRating = document.getElementById('condition-rating-max').value;
+  const roadQuery = `ConditionRating >= ${minRating} AND ConditionRating <= ${maxRating}`;
+  roadLayer.definitionExpression = roadQuery;
+});
+
+// Handle watermain query form submission
+document.getElementById('watermain-query-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const minYear = document.getElementById('install-year-min').value;
+  const maxYear = document.getElementById('install-year-max').value;
+  const minBreaks = document.getElementById('break-count').value;
+  const watermainQuery = `InstallYear >= ${minYear} AND InstallYear <= ${maxYear} AND NumBreaks >= ${minBreaks}`;
+  watermainLayer.definitionExpression = watermainQuery;
+});
+
 //layerList widget
 const layerList = new LayerList({
   view: view
@@ -94,7 +113,7 @@ const layerListExpand = new Expand({
 
 view.ui.add(layerListExpand, "top-right");
 
-//query form
+/* //query form
 const queryForm = document.createElement("div");
 queryForm.innerHTML = `
   <form id="query-form" style="padding: 10px;">
@@ -117,6 +136,6 @@ document.getElementById("query-form").addEventListener("submit", function(event)
   event.preventDefault();
   const rating = document.getElementById("condition-rating").value;
   roadLayer.definitionExpression = `ConditionRating < ${rating}`;
-});
+}); */
 
 });
