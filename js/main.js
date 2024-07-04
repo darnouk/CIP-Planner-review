@@ -25,7 +25,7 @@ const watermainLayer = new FeatureLayer({
 });
 
 const watermainBreakLayer = new FeatureLayer({
-  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/0";
+  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/0",
   outFields: ["*"],
       popupTemplate: {
           title: "Watermain Break",
