@@ -83,21 +83,23 @@ view.ui.add(searchWidget, {
 
 // Handle road query form submission
 document.getElementById('road-query-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+  event.preventDefault(); // Prevent form submission and page reload
   const minRating = document.getElementById('condition-rating-min').value;
   const maxRating = document.getElementById('condition-rating-max').value;
   const roadQuery = `ConditionRating >= ${minRating} AND ConditionRating <= ${maxRating}`;
   roadLayer.definitionExpression = roadQuery;
+  console.log("Road Query Applied: " + roadQuery);
 });
 
 // Handle watermain query form submission
 document.getElementById('watermain-query-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+  event.preventDefault(); // Prevent form submission and page reload
   const minYear = document.getElementById('install-year-min').value;
   const maxYear = document.getElementById('install-year-max').value;
   const minBreaks = document.getElementById('break-count').value;
   const watermainQuery = `InstallYear >= ${minYear} AND InstallYear <= ${maxYear} AND NumBreaks >= ${minBreaks}`;
   watermainLayer.definitionExpression = watermainQuery;
+  console.log("Watermain Query Applied: " + watermainQuery);
 });
 
 //layerList widget
