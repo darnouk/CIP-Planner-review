@@ -32,3 +32,9 @@ view.ui.add(searchWidget, {
   position: "top-left",
   index: 2
 }); */
+
+view.when(() => {
+  console.log("Map and View are ready");
+}, (error) => {
+  console.error("Error:", error);
+});
