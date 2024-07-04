@@ -31,7 +31,7 @@ const roadLayer = new FeatureLayer({
   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Roadway/FeatureServer"
 });
 
-map.addMany([roadLayer, watermainLayer]);
+map.addMany([roadLayer, watermainBreakLayer, watermainLayer]);
 
 const searchWidget = new Search({
   view: view,
