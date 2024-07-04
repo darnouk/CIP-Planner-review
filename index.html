@@ -7,47 +7,25 @@
 
         <!--put your external stylesheet links here-->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
 
     <style>
         /* style for map container */
-        #mapid {
-                height: 100%;
-                width: 100%;
-                display: inline-block;
-            } 
-    </style>
-       
+        #viewDiv {
+            height: 100vh;
+            width: 100%;
+            display: inline-block;
+        } 
+    </style>       
         
-    </head>
-    <body>
+</head>
+<body>
 
-        <div id="mapid"></div>
+    <div id="viewDiv"></div>    
 
-        <header>
-            <h1>CIP Planner</h1>
-        </header>
-        
-        <main>
-            <!-- Map container -->
-            <div id="viewDiv" style="height: 90%; width: 100%;"></div>
+    <!--put your external script links here-->
+    <script src="https://js.arcgis.com/4.21/"></script>
+    <script type="module" src="js/main.js"></script>
     
-            <section id="query-section">
-                <!-- Example form for custom queries -->
-                <form id="query-form">
-                    <label for="query">Enter your query:</label>
-                    <input type="text" id="query" name="query">
-                    <button type="submit">Submit</button>
-                </form>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2024 CIP Planner</p>
-        </footer>
-
-        <!--put your external script links here-->
-        <!-- <script type="text/javascript" src="js/main.js"></script> -->
-        <script src="https://js.arcgis.com/4.21/"></script>
-        <script type="module" src="main.js"></script>
-    </body>
+</body>
 </html>
