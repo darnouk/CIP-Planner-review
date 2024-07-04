@@ -20,18 +20,19 @@ const view = new MapView({
 });
 
 //add feature layers
-const watermainBreakLayer = new FeatureLayer({
-  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/0"
-})
 const watermainLayer = new FeatureLayer({
   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/1"
+});
+
+const watermainBreakLayer = new FeatureLayer({
+  url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Watermain/FeatureServer/0"
 });
 
 const roadLayer = new FeatureLayer({
   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Roadway/FeatureServer"
 });
 
-map.addMany([roadLayer, watermainBreakLayer, watermainLayer]);
+map.addMany([roadLayer, watermainLayer, watermainBreakLayer]);
 
 const searchWidget = new Search({
   view: view,
