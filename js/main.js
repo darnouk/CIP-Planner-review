@@ -16,7 +16,7 @@ const view = new MapView({
   container: "viewDiv", //reference to the map container
   map: map,
   center: [-87.0870, 42.0919],
-  zoom: 14
+  zoom: 12
 });
 
 //add feature layers
@@ -28,7 +28,6 @@ const watermainLayer = new FeatureLayer({
 const roadLayer = new FeatureLayer({
   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Roadway/FeatureServer"
 });
-
 
 map.addMany([roadLayer, watermainLayer]);
 
