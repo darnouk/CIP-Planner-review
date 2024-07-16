@@ -86,7 +86,7 @@
   <!-- the div to display the map -->
   <div id="viewDiv"></div>
 
-  <!-- Query Form -->
+  <!-- Form for querying roads based on condition ratings. -->
   <div id="queryForm" class="query-form">
     <h3>Query Roads</h3>
     <form id="road-query-form">
@@ -96,6 +96,7 @@
       <input type="number" id="condition-rating-max" name="condition-rating-max" min="0" max="10" value="10">
       <button type="submit">Apply Road Query</button>
     </form>
+    <!-- Form for querying watermains based on installation year and break count -->
     <h3>Query Watermains</h3>
     <form id="watermain-query-form">
       <label for="install-year-min">Install Year Min:</label>
@@ -121,3 +122,10 @@
   </script>
 </body>
 </html>
+
+<!-- I think the structure and overall layout of your code is great. Not much I would change aside from adding
+some more comments to make it easier for someone to read later on. As I mentioned in the submission comment,
+I would really only think to change some of the styling choices of the actual map, but that would be done via
+AGOL. There is a way to set the size of a point/polyline/polygon to change based on the zoom level.
+I think that would be a nice feature to add here, since when I zoom out, the red points seem to cover
+the lines and what is being displayed, and when I zoom in past a certain extent, they are a bit small. -->
